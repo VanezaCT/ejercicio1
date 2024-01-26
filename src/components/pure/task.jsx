@@ -3,6 +3,17 @@ import PropTypes from 'prop-types'
 import { Task } from '../../models/task.class'
 
 function TaskComponent({task}) {
+
+   useEffect(() => {
+       console.log('tarea creada')
+
+    return () => {
+        console.log(`task: ${task.name} antes de que desaparezca`)
+    };
+   }, [task]);
+
+
+
   return (
     <div>
         <h2>

@@ -5,7 +5,20 @@ import TaskComponent from '../pure/task';
 
 const TaskListComponent = () => {
 
+
     const defaultTask = new Task('ejemplo', 'Defauld description', false, Levels.NORMAL)
+    const [task, setTask] = useState(defaultTask);
+
+    useEffect(() => {
+        console.log('modificacion de tareas')
+        return () => {
+            console.log('cuando la tarea desaparezca')
+        };
+    }, [task]);
+
+    const changCompleted =()=>{
+        console.log('cambiar estado de tarea')
+    }
     return (
         <div>
         <div>
