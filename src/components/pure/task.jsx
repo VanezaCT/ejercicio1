@@ -1,6 +1,7 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import PropTypes from 'prop-types'
 import { Task } from '../../models/task.class'
+import '../../styles/task.scss'
 
 function TaskComponent({task}) {
 
@@ -16,17 +17,17 @@ function TaskComponent({task}) {
 
   return (
     <div>
-        <h2>
-            Nombre : { task.name }
+        <h2 className='task-name'>
+            Nombre : { task.name };
         </h2>
         <h3>
-            Descripcion: { task.description }
+            Descripcion: { task.description };
         </h3>
         <h4>
-            Level: { task.level }
+            Level: { task.level };
         </h4>
         <h5>
-            This task is: {task.completed ? 'COMPLETED':'PENDING'}
+            This task is: {task.completed ? 'COMPLETED':'PENDING'};
         </h5>
     </div>
   )
