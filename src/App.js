@@ -9,12 +9,13 @@ import Example2 from './hooks/example2';
 import MiComponenteConContexto from './hooks/example3';
 import Example4 from './hooks/example4';
 import GreetingStyled from './components/pure/greetingStyled';
+import Father from './components/container/father';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+      {/* <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" /> */}
         {/* <Greeting name='VANEZA'></Greeting> */}
         {/* <GreetingF name='vaneza'></GreetingF> */}
 
@@ -33,8 +34,9 @@ function App() {
           <h3> Ejemplo de props.children</h3>
         </Example4> */}
 
-        <GreetingStyled name="vaneza"></GreetingStyled>
-      </header>
+        {/* <GreetingStyled name="vaneza"></GreetingStyled> */}
+      {/* </header> */}
+      <Father></Father>
     </div>
   );
 }
