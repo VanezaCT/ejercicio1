@@ -20,7 +20,7 @@ function App() {
         {/* <GreetingF name='vaneza'></GreetingF> */}
 
         {/* componente de listado de tareas */}
-        {/* <TaskListComponent></TaskListComponent> */}
+        <TaskListComponent></TaskListComponent>
         
         {/* uso de hooks */}
         {/* <Example1></Example1> */}
@@ -36,7 +36,7 @@ function App() {
 
         {/* <GreetingStyled name="vaneza"></GreetingStyled> */}
       {/* </header> */}
-      <Father></Father>
+      {/* <Father></Father> */}
     </div>
   );
 }

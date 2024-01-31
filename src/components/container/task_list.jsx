@@ -12,18 +12,40 @@ const TaskListComponent = () => {
     const defaultTask3 = new Task('example3', 'Description3', true, Levels.BLOCKING)
 
 
-    const [task, setTask] = useState([defaultTask1, defaultTask2,defaultTask3]);
+    const [tasks, setTasks] = useState([defaultTask1, defaultTask2,defaultTask3]);
+    const [loading, setLoading] = useState(true);
 
-    useEffect(() => {
-        console.log('modificacion de tareas')
-        return () => {
-            console.log('cuando la tarea desaparezca')
-        };
-    }, [task]);
+    // useEffect(() => {
+    //     console.log('modificacion de tareas')
+    //     return () => {
+    //         console.log('cuando la tarea desaparezca')
+    //     };
+    // }, [tasks]);
 
-    const changCompleted =()=>{
-        console.log('cambiar estado de tarea')
+    function completeTask(task) {
+        console.log('complete this task:', task ); 
+        const index= tasks.indexOf(task);
+        const tempTasks=[...tasks];
+        tempTasks[index].completed= !tempTasks[index].completed
+        //actualiza el estado del componente
+        // actualiza la iteracion del map del componente y actualiza la tarea
+        setTasks(tempTasks)
     }
+function deleteTask(task) {
+    console.log('delete this task:', task);
+    const index = tasks.indexOf(task);
+    const tempTasks = [...tasks];
+    tempTasks.splice(index,1)
+    setTasks(tempTasks)
+}
+
+function addTask(task) {
+    console.log('add this task:', task);
+    const index = tasks.indexOf(task);
+    const tempTasks = [...tasks];
+    tempTasks.push(task)
+    setTasks(tempTasks)
+}
     return (
         <div>
             <div className='col-12'>
@@ -48,11 +70,13 @@ const TaskListComponent = () => {
                                 </tr>
                             </thead>
                             <tbody>
-                            { task.map((task, index)=>{
+                            { tasks.map((task, index)=>{
                                 return(
                                     <TaskComponent 
                                         key={index}
-                                        task={task}>
+                                        task={task}
+                                        complete={completeTask}
+                                        remove={deleteTask}>
                                     </TaskComponent> 
                                 )
                             })
@@ -61,9 +85,10 @@ const TaskListComponent = () => {
 
                         </table>
                     </div>
-                    <TaskForm></TaskForm>
                 </div>
             </div>
+            <TaskForm add={addTask}></TaskForm>
+
                 {/* aplicar un for/math para renderizar una lista de tarea */}
         </div>
     );

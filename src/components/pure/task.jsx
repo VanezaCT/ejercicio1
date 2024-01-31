@@ -4,15 +4,15 @@ import { Task } from '../../models/task.class'
 import '../../styles/task.scss'
 import { Levels } from '../../models/levels.enum';
 
-function TaskComponent({task}) {
+function TaskComponent({task, complete, remove }) {
+    
+//    useEffect(() => {
+//        console.log('tarea creada')
 
-   useEffect(() => {
-       console.log('tarea creada')
-
-    return () => {
-        console.log(`task: ${task.name} antes de que desaparezca`)
-    };
-   }, [task]);
+//     return () => {
+//         console.log(`task: ${task.name} antes de que desaparezca`)
+//     };
+//    }, [task]);
 
  //comprobar si se trata de un level u otro 
 function taskLevelBagde() {
@@ -44,9 +44,9 @@ function taskLevelBagde() {
  
 function taskCompletedIcon() {
     if (task.completed) {
-       return( <i className='bi-toggle-on' style={{ color: 'green' }}></i> )
+       return( <i onClick={()=>complete(task)} className='bi-toggle-on task-action' style={{ color: 'green' }}></i> )
     } else {
-       return( <i className='bi-toggle-off' style={{ color: 'grey' }}></i> )
+       return( <i onClick={()=>complete(task)} className='bi-toggle-off task action' style={{ color: 'grey' }}></i> )
     }
 }
 
@@ -63,7 +63,7 @@ function taskCompletedIcon() {
           </td>
           <td className='aling-middle'>
             {taskCompletedIcon()}
-            <i className='bi-trash' style={{ color: 'tomato' , fontSize:'20px'}}></i>
+            <i onClick={()=> remove(task)} className='bi-trash task-action' style={{ color: 'tomato' , fontSize:'20px'}}></i>
 
           </td>
     </tr>
@@ -86,7 +86,10 @@ function taskCompletedIcon() {
 }
 
 TaskComponent.propTypes = {
-    task : PropTypes.instanceOf(Task)
+    task : PropTypes.instanceOf(Task).isRequired ,
+    complete: PropTypes.func.isRequired,
+    remove: PropTypes.func.isRequired
 }
 
 export default TaskComponent
+ 
