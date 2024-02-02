@@ -11,6 +11,7 @@ import Example4 from './hooks/example4';
 import GreetingStyled from './components/pure/greetingStyled';
 import Father from './components/container/father';
 import OptionalRender from './components/pure/optionalRender';
+import LoginFormik from './components/pure/forms/loginFormik';
 
 function App() {
   return (
@@ -21,7 +22,7 @@ function App() {
         {/* <GreetingF name='vaneza'></GreetingF> */}
 
         {/* componente de listado de tareas */}
-        <TaskListComponent></TaskListComponent>
+        {/* <TaskListComponent></TaskListComponent> */}
         
         {/* uso de hooks */}
         {/* <Example1></Example1> */}
@@ -34,12 +35,17 @@ function App() {
         {/* <Example4 nombre='Vaneza'>
           <h3> Ejemplo de props.children</h3>
         </Example4> */}
-
+        
         {/* <GreetingStyled name="vaneza"></GreetingStyled> */}
       {/* </header> */}
       {/* <Father></Father> */}
       {/* ejemplos de renderizado condicional */}
       {/* <OptionalRender></OptionalRender> */}
+
+        {/* ejemplo de formik y yup */}
+        <LoginFormik></LoginFormik>
+
+
     </div>
   );
 }
