@@ -42,6 +42,18 @@ function taskLevelBagde() {
     }
 }
  
+    const taskCompleted = {
+        color: 'gray',
+        textDecoration: 'line-through'
+        
+    }
+
+    const taskPending = {
+        color: 'tomato',
+        fontWeigth: 'bold'
+    }
+
+
 function taskCompletedIcon() {
     if (task.completed) {
        return( <i onClick={()=>complete(task)} className='bi-toggle-on task-action' style={{ color: 'green' }}></i> )
@@ -50,8 +62,9 @@ function taskCompletedIcon() {
     }
 }
 
+
   return (
-    <tr className='tw-normal'>
+    <tr className='tw-normal' style={task.completed? taskCompleted:taskPending}>
         <th>
               <span className='ms-2'>{task.name}</span>
         </th>
