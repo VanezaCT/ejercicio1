@@ -30,7 +30,7 @@ const LoginFormik = () => {
                     alert(JSON.stringify(values, null, 2));
                     localStorage.setItem('credentials', values)
                 }}>
-
+                
                 {({ values,
                     touched,
                     errors,
@@ -69,12 +69,11 @@ const LoginFormik = () => {
                                 </div>
                         )
                     }
-
-                    <button type="submit">Login</button>
+                                        <button type="submit">Login</button>
                     {isSubmitting ? (<p>Login your credential...</p>) : null}
                 </Form>
                     )
-
+                    
                 }
             </Formik> 
         </div>
