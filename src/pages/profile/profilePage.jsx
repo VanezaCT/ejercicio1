@@ -8,7 +8,7 @@ const ProfilePage = ({user}) => {
     const goBack = (path) => {
         navigate(path)
     }
-
+    
     const navigateTo =(path)=>{
         navigate(path)
     }
