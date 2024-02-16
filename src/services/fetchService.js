@@ -1,3 +1,4 @@
+import { Password } from "@mui/icons-material";
 
 export const getAllUsers= async ()=>{
     let response = await fetch('https://reqres.in/api/users')
@@ -25,3 +26,25 @@ export const getUserDetails = async (id)=>{
 
     return response.json()
 }
+
+export const login = async (email, password) =>{
+    let body={
+        email: email, 
+        password: password
+    }
+    let response = await fetch('https://reqres.in/api/login', {
+        methods: 'POST',
+        // mode:'no-cors',
+        // credentials:'omit', 
+        // cache:'no-cache',
+        // headers: {
+        //     'content-type':'application/json'
+        // },
+        body:  JSON.stringify (body),
+    })
+    console.log('Response: ', response);
+    console.log('Status:', response.status);
+    console.log('ok?: ', response.ok);
+    return response.json()
+    }
+

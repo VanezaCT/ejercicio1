@@ -1,6 +1,7 @@
 
+import { Password } from '@mui/icons-material';
 import React, { useState, useEffect } from 'react';
-import { getAllUsers, getAllPagedUsers, getUserDetails } from '../../services/fetchService';
+import { getAllUsers, getAllPagedUsers, getUserDetails, login} from '../../services/fetchService';
 
 const FetchExample = () => {
 
@@ -70,12 +71,27 @@ const FetchExample = () => {
             )
     }
 
+    const authUser =  ()=>{
+        login('eve.holt@reqres.in','cityslicka')
+        .then((response) => {
+            console.log('token', response.token);
+           sessionStorage.setItem('token', response.token)
+
+        }).catch((error) => {
+            alert(`ocurrio un problema con el login : ${error}`)
+
+        }).finally(() => {
+            console.log('ended login users:');
+        }
+        )
+    }
+    
     return (
         <div>
+        <button onClick={authUser}>Auth user</button>
             <h2> Users:</h2>
             {users.map((user, index) => (
                 <p key={index} onClick={() => obtineUsersDetails(user.id)}>
-                    {/* <img src={user.avatar} ></img>  */}
                     {user.first_name} {user.last_name}
                 </p>
             ))}
@@ -94,7 +110,7 @@ const FetchExample = () => {
                             <p>{selectedUser.first_name} {selectedUser.last_name}</p>
                             <p>{selectedUser.email}</p>
                         </div>
-                ):<p>Please click in the user</p>
+                    ) : (<h6>Please click in the user</h6>)
                 }
             </div>
         </div>

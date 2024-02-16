@@ -41,7 +41,7 @@ const AsyncExample = () => {
         .finally(()=> alert('finaly executed'))
 
     }
-
+    
     const urlNotFound = async()=>{
         try {
             let response = await fetch('http://invalidURL')
