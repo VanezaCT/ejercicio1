@@ -17,6 +17,7 @@ import AsyncExample from './components/pure/AsyncExample';
 import ObservableExample from './components/pure/ObservableExample';
 import FetchExample from './components/pure/FetchExample';
 import AxiosExample from './components/pure/AxiosExample';
+import AxiosCRUDExample from './components/pure/axiosCRUDExample';
 
 function App() {
   return (
@@ -58,7 +59,8 @@ function App() {
         
         {/* <FetchExample></FetchExample> */}
 
-        <AxiosExample></AxiosExample>
+        {/* <AxiosExample></AxiosExample> */}
+        <AxiosCRUDExample></AxiosCRUDExample>
         
     </div>
   );
